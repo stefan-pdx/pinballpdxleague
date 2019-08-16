@@ -1,0 +1,29 @@
+<div class="home-match" style="text-align:center">
+    <div class="home-match-banner">
+        Tonight's Match
+    </div>
+
+    <div class="match-team-lineup" >
+        <%= match.away_team.name %>
+        @
+        <%= match.home_team.name %>
+    </div>
+
+    <div class="match-venue">
+        <div class="match-venue-time">
+            7:00 PM
+        </div>
+        <div class="match-venue-name">
+            The Drunken Clam
+        </div>
+        <div class="match-venue-address">
+            <%= Faker::Address.full_address %>
+        <div class="match-venue-address">
+    </div>
+
+    <% if match.started? %>
+        <%= button_to "View Match!", match, method: :get %>
+    <% else %>
+        <%= button_to "Start Match!", match_rounds_path(match) %>
+    <% end %>
+</div>

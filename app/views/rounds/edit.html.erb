@@ -1,0 +1,24 @@
+<%= simple_form_for(
+    @round,
+    method: :patch,
+    url: match_round_url(@match, @round)) do |round_form| %>
+
+    <% @round.games.each_with_index do |game, index| %>
+
+        <h3> Game #<%= index %> </h3>
+
+        <%= round_form.simple_fields_for :games, game do |game_form| %>
+            <%= game_form.association :machine %>
+
+            <%= game_form.simple_fields_for :lineups do |lineup_form| %>
+                <% if @match.at_home?(current_player) %>
+                    <%= lineup_form.select :first_player_id, current_player.team.players.map{|p| [p.id, p.abbreviated_name]} %>
+                <% else %>
+                    <%= lineup_form.select :second_player_id, current_player.team.players.map{|p| [p.id, p.abbreviated_name]} %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+
+    <%= round_form.button :submit %>
+<% end %>

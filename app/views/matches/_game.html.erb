@@ -1,0 +1,20 @@
+<div class="match-game" style="display:flex;flex-direction:column;text-align:center;margin-bottom:8px">
+    <div class="match-machine">
+        <% if game.machine %>
+            <%= game.machine.name %>
+        <% else %>
+            N/A
+        <% end %>
+    </div>
+    <div class="match-lineups" style="display:flex;flex-direction:column">
+        <div class="match-lineup-header" style="display:flex;flex-direction:row;margin-bottom:5px">
+            <span class="match-lineup-header-label" style="width:200px;font-style:italic">
+                Home
+            </span>
+            <span class="match-lineup-header-label" style="width:200px;font-style:italic">
+                Away
+            </span>
+        </div>
+        <%= render partial: 'lineup', collection: game.lineups %>
+    </div>
+</div>

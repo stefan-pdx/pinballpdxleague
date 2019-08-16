@@ -1,0 +1,8 @@
+<div class="match-round" style="display:flex;flex-direction:row">
+    <div class="match-round-label" style="vertical-align: middle;line-height: <%= round.singles? ? "90px" : "215px" %>;">
+        Round <%= round.round_number %>
+    </div>
+    <div class="match-games" style="display:flex;flex-direction:column">
+        <%= render partial: "game", collection: round.games %>
+    </div>
+</div>

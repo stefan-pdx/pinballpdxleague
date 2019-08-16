@@ -1,0 +1,12 @@
+<div class="match-lineup" style="display:flex;flex-direction:row;margin-bottom:4px">
+    <div class="match-lineup-player" style="width:200px">
+        <% if lineup.home_player %>
+            <%= lineup.home_player.abbreviated_name %>
+        <% end %>
+    </div>
+    <div class="match-lineup-player" style="width:200px">
+        <% if lineup.away_player %>
+            <%= lineup.away_player.abbreviated_name %>
+        <% end %>
+    </div>
+</div>

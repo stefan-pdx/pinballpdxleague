@@ -1,0 +1,9 @@
+<% if current_player %>
+    <% if @match %>
+        <%= render partial: 'match', object: @match %>
+    <% else %>
+        No matches today.
+    <% end %>
+<% else %>
+    <h1> Welcome! </h1>
+<% end %>

@@ -1,0 +1,21 @@
+<% if match.waiting_for_lineup?(current_player.team) %>
+    <div class="match-waiting-banner">
+        Hang tight! The other team is deciding on a lineup.
+    </div>
+<% end %>
+
+<div class="match-scorecard" style="display:flex;flex-direction:column">
+    <div class="match-header" style="margin-bottom:20px">
+        <div class="match-team-lineup">
+            <%= match.away_team.name %>
+            @
+            <%= match.home_team.name %>
+        </div>
+        <div class="match-date">
+            <%= match.date.strftime("%-m/%-e/%Y") %>
+        </div>
+    </div>
+    <div class="match-rounds" style="display:flex;flex-direction:column">
+        <%= render partial: "round", collection: match.rounds %>
+    </div>
+</div>
